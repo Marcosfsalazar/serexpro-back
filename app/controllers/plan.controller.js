@@ -1,5 +1,5 @@
 const db = require("../models");
-const Plan = db.Plan;
+const Plan = db.plans;
 const Op = db.Sequelize.Op;
 
 exports.create = (req, res) => {
@@ -34,7 +34,7 @@ exports.findAll = (req, res) => {
   const name = req.query.name;
   var condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
 
-  Tutorial.findAll({ where: condition })
+  Plan.findAll({ where: condition })
     .then(data => {
       res.send(data);
     })
@@ -49,7 +49,7 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
 
-  Tutorial.findByPk(id)
+  Plan.findByPk(id)
     .then(data => {
       res.send(data);
     })
@@ -63,7 +63,7 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
 
-  Tutorial.update(req.body, {
+  Plan.update(req.body, {
     where: { id: id }
   })
     .then(num => {
