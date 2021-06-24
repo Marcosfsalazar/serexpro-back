@@ -3,7 +3,9 @@
 
   - Então:
     -``npm install``
-    e
+    
+    e depois
+    
     -``npm start``
 
 
