@@ -11,6 +11,11 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
+const db = require("./app/models");
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and re-sync db.");
+});
+
 app.use(express.urlencoded({ extended: true }));
 
 // simple route
