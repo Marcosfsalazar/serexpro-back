@@ -23,6 +23,8 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello World!" });
 });
 
+require("./app/routes/plan.routes")(app);
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
